@@ -2,13 +2,14 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Programación con Login QR</title>
+<title>ProCode Rojo</title>
 
 <style>
+*{ margin:0; padding:0; box-sizing:border-box; }
+
 body{
-    margin:0;
     font-family:Arial, sans-serif;
-    background:#0b1120;
+    background:#0d0000;
     color:white;
 }
 
@@ -17,16 +18,20 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#020617,#003566,#00b4d8);
+    background:linear-gradient(135deg,#120000,#4d0000,#b30000);
 }
 
-.caja-login{
-    background:#111827;
+.login-card{
+    width:380px;
+    background:#1b0000;
     padding:35px;
-    border-radius:20px;
+    border-radius:25px;
     text-align:center;
-    box-shadow:0 0 30px #00eaff;
-    width:360px;
+    box-shadow:0 0 35px red;
+}
+
+.login-card h1{
+    color:#ff2d2d;
 }
 
 .qr{
@@ -34,33 +39,35 @@ body{
     background:white;
     padding:10px;
     border-radius:15px;
+    margin:15px;
 }
 
 input{
-    width:90%;
-    padding:12px;
-    margin-top:15px;
-    border-radius:10px;
+    width:100%;
+    padding:13px;
     border:none;
+    border-radius:12px;
+    text-align:center;
 }
 
 button{
-    background:#00eaff;
-    color:#000;
+    width:100%;
+    margin-top:12px;
+    padding:13px;
     border:none;
-    padding:12px 25px;
-    border-radius:10px;
+    border-radius:12px;
+    background:linear-gradient(90deg,#ff0000,#8b0000);
+    color:white;
     font-weight:bold;
     cursor:pointer;
-    margin-top:10px;
 }
 
 button:hover{
-    background:white;
+    background:linear-gradient(90deg,#ff4d4d,#b30000);
 }
 
 #error{
-    color:red;
+    color:#ff4d4d;
     font-weight:bold;
 }
 
@@ -68,20 +75,9 @@ button:hover{
     display:none;
 }
 
-header{
-    text-align:center;
-    padding:60px 20px;
-    background:linear-gradient(135deg,#020617,#003566);
-}
-
-header h1{
-    color:#00eaff;
-    font-size:45px;
-}
-
 nav{
-    background:#020617;
-    padding:15px;
+    background:#1a0000;
+    padding:18px;
     text-align:center;
     position:sticky;
     top:0;
@@ -89,53 +85,90 @@ nav{
 
 nav a{
     color:white;
-    margin:15px;
     text-decoration:none;
+    margin:15px;
     font-weight:bold;
 }
 
+nav a:hover{
+    color:#ff4d4d;
+}
+
+header{
+    padding:80px 20px;
+    text-align:center;
+    background:linear-gradient(rgba(0,0,0,.7),rgba(25,0,0,.85)),
+    url("https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+}
+
+header h1{
+    font-size:55px;
+    color:#ff2d2d;
+    text-shadow:0 0 25px red;
+}
+
 section{
-    padding:40px;
+    padding:50px 8%;
 }
 
 .titulo{
-    color:#00eaff;
     text-align:center;
+    color:#ff2d2d;
+    font-size:38px;
+    margin-bottom:20px;
 }
 
-.contenedor{
+.texto{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    line-height:1.7;
+    color:#e5e7eb;
+}
+
+.grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:25px;
+    margin-top:35px;
 }
 
-.tarjeta{
-    background:#111827;
-    padding:20px;
-    border-radius:18px;
-    box-shadow:0 0 15px #00eaff;
+.card{
+    background:#1b0000;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 0 20px rgba(255,0,0,.45);
 }
 
-.tarjeta img{
+.card img{
     width:100%;
-    height:170px;
+    height:190px;
     object-fit:cover;
-    border-radius:15px;
+}
+
+.card-body{
+    padding:22px;
+}
+
+.card-body h2{
+    color:#ff4d4d;
 }
 
 .info{
     display:none;
-    background:#1f2937;
+    background:#330000;
     margin-top:15px;
     padding:15px;
-    border-radius:10px;
-    line-height:1.5;
+    border-radius:12px;
+    line-height:1.6;
 }
 
 footer{
     text-align:center;
+    background:#000;
     padding:25px;
-    background:black;
 }
 </style>
 </head>
@@ -143,141 +176,133 @@ footer{
 <body>
 
 <div id="login">
-    <div class="caja-login">
+    <div class="login-card">
         <h1>🔐 Login QR</h1>
-        <p>Escanea el QR y escribe el código.</p>
+        <p>Escanea el QR y escribe el código</p>
 
         <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=230x230&data=ACCESO2026">
 
-        <p><b>Código:</b> ACCESO2026</p>
-
-        <input type="text" id="codigo" placeholder="Escribe el código del QR">
-
+        <input type="text" id="codigo" placeholder="Código de acceso">
         <button onclick="entrar()">Entrar</button>
 
         <p id="error"></p>
+        <p><b>Código:</b> ACCESO2026</p>
     </div>
 </div>
 
 <div id="pagina">
 
-<header>
-    <h1>💻 Academia de Programación</h1>
-    <p>Aprende sobre programación, lenguajes, herramientas y su importancia.</p>
-</header>
-
 <nav>
+    <a href="#inicio">Inicio</a>
     <a href="#programacion">Programación</a>
     <a href="#lenguajes">Lenguajes</a>
     <a href="#importancia">Importancia</a>
 </nav>
 
+<header id="inicio">
+    <h1>Academia ProCode</h1>
+    <p>Aprende programación, lenguajes y desarrollo web</p>
+</header>
+
 <section id="programacion">
     <h2 class="titulo">¿Qué es la programación?</h2>
-    <p>
+    <p class="texto">
         La programación es el proceso de escribir instrucciones para que una computadora
-        realice tareas específicas. Estas instrucciones forman programas, aplicaciones,
-        páginas web, videojuegos y sistemas.
-    </p>
-
-    <p>
-        Un programador utiliza lenguajes de programación para comunicarse con la computadora.
-        Gracias a la programación se pueden resolver problemas, automatizar trabajos,
-        crear software y mejorar procesos en empresas, escuelas y negocios.
+        realice tareas. Gracias a la programación se pueden crear páginas web, aplicaciones,
+        videojuegos, sistemas de ventas, inteligencia artificial y muchas herramientas digitales.
     </p>
 </section>
 
 <section id="lenguajes">
-<h2 class="titulo">Lenguajes de programación</h2>
+    <h2 class="titulo">Lenguajes de programación</h2>
 
-<div class="contenedor">
+    <div class="grid">
 
-<div class="tarjeta">
-<img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=800&q=80">
-<h2>Python</h2>
-<button onclick="mostrar('python')">Enseñar</button>
-<div class="info" id="python">
-<p><b>Python</b> es un lenguaje fácil de aprender y muy utilizado.</p>
-<p>Sirve para inteligencia artificial, automatización, análisis de datos, páginas web y programas escolares.</p>
-<p>Es recomendado para principiantes porque su código es claro y sencillo.</p>
-</div>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=900&q=80">
+            <div class="card-body">
+                <h2>Python</h2>
+                <p>Lenguaje sencillo y poderoso.</p>
+                <button onclick="mostrar('python')">Enseñar</button>
+                <div class="info" id="python">
+                    <p>Python se usa en inteligencia artificial, análisis de datos, páginas web, automatización y programas escolares.</p>
+                </div>
+            </div>
+        </div>
 
-<div class="tarjeta">
-<img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80">
-<h2>Java</h2>
-<button onclick="mostrar('java')">Enseñar</button>
-<div class="info" id="java">
-<p><b>Java</b> es un lenguaje usado para crear aplicaciones y sistemas grandes.</p>
-<p>Se utiliza en Android, programas de escritorio y sistemas empresariales.</p>
-<p>También se aprende mucho en NetBeans.</p>
-</div>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80">
+            <div class="card-body">
+                <h2>Java</h2>
+                <p>Lenguaje usado en sistemas y aplicaciones.</p>
+                <button onclick="mostrar('java')">Enseñar</button>
+                <div class="info" id="java">
+                    <p>Java sirve para crear aplicaciones, sistemas empresariales, programas de escritorio y aplicaciones Android.</p>
+                </div>
+            </div>
+        </div>
 
-<div class="tarjeta">
-<img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=800&q=80">
-<h2>HTML</h2>
-<button onclick="mostrar('html')">Enseñar</button>
-<div class="info" id="html">
-<p><b>HTML</b> sirve para crear la estructura de una página web.</p>
-<p>Con HTML se agregan títulos, textos, imágenes, enlaces, tablas, formularios y botones.</p>
-<p>Es la base principal de todo sitio web.</p>
-</div>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=900&q=80">
+            <div class="card-body">
+                <h2>HTML</h2>
+                <p>Estructura principal de una web.</p>
+                <button onclick="mostrar('html')">Enseñar</button>
+                <div class="info" id="html">
+                    <p>HTML sirve para colocar títulos, textos, imágenes, enlaces, botones, formularios y tablas.</p>
+                </div>
+            </div>
+        </div>
 
-<div class="tarjeta">
-<img src="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=800&q=80">
-<h2>CSS</h2>
-<button onclick="mostrar('css')">Enseñar</button>
-<div class="info" id="css">
-<p><b>CSS</b> se usa para darle diseño a las páginas web.</p>
-<p>Permite cambiar colores, fondos, tamaños, bordes, sombras, animaciones y posiciones.</p>
-<p>Hace que una página se vea más profesional.</p>
-</div>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=900&q=80">
+            <div class="card-body">
+                <h2>CSS</h2>
+                <p>Diseño visual de páginas web.</p>
+                <button onclick="mostrar('css')">Enseñar</button>
+                <div class="info" id="css">
+                    <p>CSS permite agregar colores, fondos, bordes, sombras, animaciones y diseños profesionales.</p>
+                </div>
+            </div>
+        </div>
 
-<div class="tarjeta">
-<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80">
-<h2>JavaScript</h2>
-<button onclick="mostrar('js')">Enseñar</button>
-<div class="info" id="js">
-<p><b>JavaScript</b> permite que una página web sea interactiva.</p>
-<p>Sirve para crear menús, botones funcionales, formularios, juegos, efectos y animaciones.</p>
-<p>Es muy importante para el desarrollo web moderno.</p>
-</div>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80">
+            <div class="card-body">
+                <h2>JavaScript</h2>
+                <p>Interactividad para páginas web.</p>
+                <button onclick="mostrar('js')">Enseñar</button>
+                <div class="info" id="js">
+                    <p>JavaScript sirve para crear botones funcionales, menús, juegos, animaciones y formularios interactivos.</p>
+                </div>
+            </div>
+        </div>
 
-<div class="tarjeta">
-<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80">
-<h2>Visual Basic</h2>
-<button onclick="mostrar('vb')">Enseñar</button>
-<div class="info" id="vb">
-<p><b>Visual Basic</b> es un lenguaje de Microsoft.</p>
-<p>Sirve para crear programas con ventanas, botones, cajas de texto y formularios.</p>
-<p>Es útil para aprender programación de forma visual.</p>
-</div>
-</div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80">
+            <div class="card-body">
+                <h2>Visual Basic</h2>
+                <p>Lenguaje visual de Microsoft.</p>
+                <button onclick="mostrar('vb')">Enseñar</button>
+                <div class="info" id="vb">
+                    <p>Visual Basic se usa para crear programas con ventanas, botones, cajas de texto y formularios.</p>
+                </div>
+            </div>
+        </div>
 
-</div>
+    </div>
 </section>
 
 <section id="importancia">
-<h2 class="titulo">Importancia de aprender programación</h2>
-
-<p>
-Aprender programación es importante porque desarrolla la lógica, la creatividad y la capacidad
-de resolver problemas. También ayuda a crear proyectos tecnológicos como páginas web,
-aplicaciones, sistemas de ventas, juegos y programas escolares.
-</p>
-
-<p>
-La programación es útil en muchas áreas como educación, medicina, ingeniería, empresas,
-diseño, videojuegos, robótica e inteligencia artificial.
-</p>
+    <h2 class="titulo">Importancia</h2>
+    <p class="texto">
+        Aprender programación mejora la lógica, la creatividad y la solución de problemas.
+        También ayuda a crear proyectos tecnológicos y abre oportunidades en muchas áreas.
+    </p>
 </section>
 
 <footer>
-<p>© 2026 Academia de Programación</p>
+    <p>© 2026 Academia ProCode</p>
 </footer>
 
 </div>
