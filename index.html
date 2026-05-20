@@ -2,10 +2,14 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>ProCode Rojo</title>
+<title>Academia ProCode</title>
 
 <style>
-*{ margin:0; padding:0; box-sizing:border-box; }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
     font-family:Arial, sans-serif;
@@ -69,6 +73,7 @@ button:hover{
 #error{
     color:#ff4d4d;
     font-weight:bold;
+    margin-top:10px;
 }
 
 #pagina{
@@ -81,6 +86,7 @@ nav{
     text-align:center;
     position:sticky;
     top:0;
+    z-index:10;
 }
 
 nav a{
@@ -95,7 +101,7 @@ nav a:hover{
 }
 
 header{
-    padding:80px 20px;
+    padding:90px 20px;
     text-align:center;
     background:linear-gradient(rgba(0,0,0,.7),rgba(25,0,0,.85)),
     url("https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=80");
@@ -107,6 +113,10 @@ header h1{
     font-size:55px;
     color:#ff2d2d;
     text-shadow:0 0 25px red;
+}
+
+header p{
+    font-size:20px;
 }
 
 section{
@@ -121,8 +131,8 @@ section{
 }
 
 .texto{
-    max-width:900px;
-    margin:auto;
+    max-width:950px;
+    margin:15px auto;
     text-align:center;
     line-height:1.7;
     color:#e5e7eb;
@@ -156,6 +166,11 @@ section{
     color:#ff4d4d;
 }
 
+.card-body p{
+    color:#e5e7eb;
+    margin-top:8px;
+}
+
 .info{
     display:none;
     background:#330000;
@@ -163,6 +178,11 @@ section{
     padding:15px;
     border-radius:12px;
     line-height:1.6;
+}
+
+.info ul{
+    margin-left:20px;
+    margin-top:10px;
 }
 
 footer{
@@ -196,6 +216,7 @@ footer{
     <a href="#inicio">Inicio</a>
     <a href="#programacion">Programación</a>
     <a href="#lenguajes">Lenguajes</a>
+    <a href="#herramientas">Herramientas</a>
     <a href="#importancia">Importancia</a>
 </nav>
 
@@ -206,10 +227,20 @@ footer{
 
 <section id="programacion">
     <h2 class="titulo">¿Qué es la programación?</h2>
+
     <p class="texto">
-        La programación es el proceso de escribir instrucciones para que una computadora
-        realice tareas. Gracias a la programación se pueden crear páginas web, aplicaciones,
-        videojuegos, sistemas de ventas, inteligencia artificial y muchas herramientas digitales.
+        La programación es el proceso de escribir instrucciones para que una computadora,
+        celular o sistema pueda realizar tareas específicas.
+    </p>
+
+    <p class="texto">
+        Gracias a la programación se pueden crear páginas web, aplicaciones móviles,
+        videojuegos, sistemas de ventas, inteligencia artificial, bases de datos y programas escolares.
+    </p>
+
+    <p class="texto">
+        Programar también ayuda a desarrollar la lógica, resolver problemas,
+        organizar ideas y crear soluciones tecnológicas.
     </p>
 </section>
 
@@ -222,10 +253,18 @@ footer{
             <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=900&q=80">
             <div class="card-body">
                 <h2>Python</h2>
-                <p>Lenguaje sencillo y poderoso.</p>
+                <p>Lenguaje moderno, fácil y poderoso.</p>
                 <button onclick="mostrar('python')">Enseñar</button>
                 <div class="info" id="python">
-                    <p>Python se usa en inteligencia artificial, análisis de datos, páginas web, automatización y programas escolares.</p>
+                    <p><b>Python</b> es muy usado por su facilidad de aprendizaje.</p>
+                    <ul>
+                        <li>Inteligencia artificial</li>
+                        <li>Análisis de datos</li>
+                        <li>Automatización</li>
+                        <li>Programas escolares</li>
+                        <li>Videojuegos</li>
+                    </ul>
+                    <p>Es recomendado para principiantes porque su código es claro y sencillo.</p>
                 </div>
             </div>
         </div>
@@ -234,10 +273,17 @@ footer{
             <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80">
             <div class="card-body">
                 <h2>Java</h2>
-                <p>Lenguaje usado en sistemas y aplicaciones.</p>
+                <p>Lenguaje fuerte para sistemas y aplicaciones.</p>
                 <button onclick="mostrar('java')">Enseñar</button>
                 <div class="info" id="java">
-                    <p>Java sirve para crear aplicaciones, sistemas empresariales, programas de escritorio y aplicaciones Android.</p>
+                    <p><b>Java</b> se usa para crear programas grandes y profesionales.</p>
+                    <ul>
+                        <li>Aplicaciones Android</li>
+                        <li>Sistemas empresariales</li>
+                        <li>Programas de escritorio</li>
+                        <li>Aplicaciones escolares</li>
+                    </ul>
+                    <p>También ayuda a aprender programación orientada a objetos.</p>
                 </div>
             </div>
         </div>
@@ -246,10 +292,19 @@ footer{
             <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=900&q=80">
             <div class="card-body">
                 <h2>HTML</h2>
-                <p>Estructura principal de una web.</p>
+                <p>Base principal de una página web.</p>
                 <button onclick="mostrar('html')">Enseñar</button>
                 <div class="info" id="html">
-                    <p>HTML sirve para colocar títulos, textos, imágenes, enlaces, botones, formularios y tablas.</p>
+                    <p><b>HTML</b> crea la estructura de una página web.</p>
+                    <ul>
+                        <li>Títulos</li>
+                        <li>Textos</li>
+                        <li>Imágenes</li>
+                        <li>Videos</li>
+                        <li>Botones</li>
+                        <li>Formularios</li>
+                    </ul>
+                    <p>HTML trabaja junto con CSS y JavaScript.</p>
                 </div>
             </div>
         </div>
@@ -261,7 +316,16 @@ footer{
                 <p>Diseño visual de páginas web.</p>
                 <button onclick="mostrar('css')">Enseñar</button>
                 <div class="info" id="css">
-                    <p>CSS permite agregar colores, fondos, bordes, sombras, animaciones y diseños profesionales.</p>
+                    <p><b>CSS</b> sirve para dar diseño y estilo.</p>
+                    <ul>
+                        <li>Colores</li>
+                        <li>Fondos</li>
+                        <li>Sombras</li>
+                        <li>Bordes</li>
+                        <li>Animaciones</li>
+                        <li>Diseño responsive</li>
+                    </ul>
+                    <p>Con CSS una página se ve más profesional.</p>
                 </div>
             </div>
         </div>
@@ -273,7 +337,15 @@ footer{
                 <p>Interactividad para páginas web.</p>
                 <button onclick="mostrar('js')">Enseñar</button>
                 <div class="info" id="js">
-                    <p>JavaScript sirve para crear botones funcionales, menús, juegos, animaciones y formularios interactivos.</p>
+                    <p><b>JavaScript</b> permite que una página sea dinámica.</p>
+                    <ul>
+                        <li>Botones funcionales</li>
+                        <li>Menús</li>
+                        <li>Animaciones</li>
+                        <li>Juegos</li>
+                        <li>Formularios interactivos</li>
+                    </ul>
+                    <p>Es esencial en el desarrollo web moderno.</p>
                 </div>
             </div>
         </div>
@@ -285,7 +357,15 @@ footer{
                 <p>Lenguaje visual de Microsoft.</p>
                 <button onclick="mostrar('vb')">Enseñar</button>
                 <div class="info" id="vb">
-                    <p>Visual Basic se usa para crear programas con ventanas, botones, cajas de texto y formularios.</p>
+                    <p><b>Visual Basic</b> permite crear programas con ventanas.</p>
+                    <ul>
+                        <li>Formularios</li>
+                        <li>Botones</li>
+                        <li>Cajas de texto</li>
+                        <li>Sistemas administrativos</li>
+                        <li>Conexiones a bases de datos</li>
+                    </ul>
+                    <p>Es útil para aprender programación visual.</p>
                 </div>
             </div>
         </div>
@@ -293,16 +373,40 @@ footer{
     </div>
 </section>
 
+<section id="herramientas">
+    <h2 class="titulo">Herramientas para programar</h2>
+
+    <p class="texto">
+        Algunas herramientas para programar son Visual Studio Code, NetBeans,
+        Visual Studio, Bloc de notas, Sublime Text y navegadores web.
+    </p>
+
+    <p class="texto">
+        Estas herramientas ayudan a escribir código, organizar archivos,
+        detectar errores y probar programas.
+    </p>
+</section>
+
 <section id="importancia">
-    <h2 class="titulo">Importancia</h2>
+    <h2 class="titulo">Importancia de aprender programación</h2>
+
     <p class="texto">
         Aprender programación mejora la lógica, la creatividad y la solución de problemas.
-        También ayuda a crear proyectos tecnológicos y abre oportunidades en muchas áreas.
+    </p>
+
+    <p class="texto">
+        También abre oportunidades en áreas como educación, empresas, medicina,
+        videojuegos, diseño web, robótica e inteligencia artificial.
+    </p>
+
+    <p class="texto">
+        Una persona que aprende a programar puede crear sus propios proyectos,
+        automatizar tareas y desarrollar soluciones útiles para la vida diaria.
     </p>
 </section>
 
 <footer>
-    <p>© 2026 Academia ProCode</p>
+    <p>© 2026 Academia ProCode | Página educativa</p>
 </footer>
 
 </div>
